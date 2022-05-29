@@ -49,26 +49,26 @@
 
 <!-- bug -->
 # bug
-    q.为什么参数双层嵌套
+    q.为什么参数双层嵌套[ok]
     a.使用对象解构参数解决，<Com {...props}>
 
-    q,聚集性模块输出不了
+    q,聚集性模块输出不了[ok]
     a.文件位置错误
 
     q.403错误，难道又是我触发无限请求，在递归请求？？？请求频率问题
 
     q.与预设字段不一致
-    a.加了个简单对象转换和字段规则匹配。
+    a.加了个简单对象转换和字段规则匹配。[ok]
         不足之处：没有对应的处理器，或者说我不知道处理器和匹配器应该是解耦状态好，还是统一状态。
         我认为匹配器主要在特征识别功能上，而处理器主要功能在特征处理上。
         我认为复杂数据，可能会有快速识别特征。
         我也认为两者之间的工作是存在一个公有流程。
 
 
-    q.github推不上去，
+    q.github推不上去，[ok]
     a.->过了很久，返回连接超时->连不上去,我有代理呀啊，那可能是代理没有使用进程模式或者说代理只有一种代理处理，导3致其他网络还是本地请求。->链接上去，新电脑尝试登陆验证设备，选择浏览器端。
 
-    q.hook保存的状态更新后还是原来状态，更加奇怪的是接收的源映射，尽可以响应，一直是初始状态。
+    q.hook保存的状态更新后还是原来状态，更加奇怪的是接收的源映射，尽可以响应，一直是初始状态。[ok]
     a.原来是useCallback缓存函数问题，因为我设置的是组件创建后的依赖项，所以它的函数一直没有变化，
     但有趣的是useState仍然可以工作，但是它的副作用去无法去发现变化（可能记忆有误）。
 
@@ -89,8 +89,21 @@
      用自定义钩子获取数据，减少重复代码。
      深度：A Reducer Hook returns us a state object and a function to alter the state object. The function -- called dispatch function -- takes an action which has a type and an optional payload. All this information is used in the actual reducer function to distill a new state from the previous state, the action's optional payload and type. Let's see how this works in code:
      依赖项可以多入参[v1,v2,v3,....]
+     github评论系统感想，文本效果应该就是匹配器+样式替换自动处理器，多的可能加个规则引擎。
+     看到nodejs指北，配置化表单实践
+        作为认为是一份协议，但我更多的喜欢解释为规则。
+        配置化+模板生成器+渲染器->虚拟dom->真实dom
 
 # Verson
 语义化
 提交规范
     添加git cz
+# Repo[仓库]
+1.问题很简单，但是解决过程，过度使用一些复杂的东西。
+2.没必要使用redux，能以简单的方式实现就用简单的方式实现。
+3.如果使用了 redux，那么数据处理都放在 reducer 里实现。
+4.如果有独立组件，可以使用单文件形式
+5.如apiShowItem这个命名不合适。
+6.代码中尽量不要有中文。
+7.使用README而不是myReadme这个会展示repo
+8.另外，可以直接给 github 链接，不必要是 .git 地址

@@ -1,0 +1,81 @@
+1.dispatch(
+    createAction+er_Fn(...args)
+)
+调度一个接受任务（参数）创建动作者
+✌
+
+2.或者创建一个 被绑定的 action 创建函数 来自动 dispatch
+boundDispatch(...args)=>dispatch(createAction+er_Fn(..args))
+✌
+
+3.store 里能直接通过 store.dispatch() 调用 dispatch() 方法，但是多数情况下你会使用 react-redux 提供的 
+connect() 帮助器来调用。
+✌
+bindActionCreators()[redux] 可以自动把多个 action 创建函数 绑定到 dispatch() 方法上。
+copy To Study
+✌
+
+4.在 Redux 应用中，所有的 state 都被保存在一个单一对象中。建议在写代码前先想一下这个对象的结构。
+如何才能以最简的形式把应用的 state 用对象描述出来
+✌
+
+5.开发复杂的应用时，不可避免会有一些数据相互引用。建议你尽可能地把 state 范式化，不存在嵌套（扁平化处理？，）。
+把所有数据放到一个对象里，每个数据以 ID 为主键，不同实体或列表间通过 ID 相互引用数据。把应用的 state 想像成数据库。
+这种方法在 normalizr 文档里有详细阐述。
+例如，实际开发中，在 state 里同时存放 todosById: { id -> todo } 和 todos: array<id> 是比较好的方式，
+todosById object快查法
+todosarry：array迭代法
+指针？特征？
+何人☞何人
+✌
+
+6.(previousState, action) => newState
+    纯函数，本质
+    职责明确，
+    可测试
+✌
+
+7.我们需要修改数组中指定的数据项而又不希望导致突变, 因此我们的做法是在创建一个新的数组后, 将那些无需修改的项原封不动移入, 接着对需修改的项用新生成的对象替换。(译者注：Javascript中的对象存储时均是由值和指向值的引用两个部分构成。此处突变指直接修改引用所指向的值, 而引用本身保持不变。)
+ 如果经常需要这类的操作，可以选择使用帮助类 React-addons-update，updeep，或者使用原生支持深度更新的库 Immutable。
+ 最后，时刻谨记永远不要在克隆 state 前修改它。
+✌
+8.如何提高代码阅读？
+    1.提高阅读者本身的水平
+    2.提高代码语义水平，逻辑表达等式
+    3.对于兼容之类的代码使用编译技术
+    4.对代码提供语法糖，泛化语义
+    5.命名准确
+    6.层级解耦
+    我是个小推车
+✌
+9.combineReducers() 所做的只是生成一个函数，这个函数来调用你的一系列 reducer，每个 reducer 根据它们的 key 来筛选出 state 中的一部分数据并处理，
+然后这个生成的函数再将所有 reducer 的结果合并成一个大的对象。没有任何魔法。
+正如其他 reducers，如果 combineReducers() 中包含的所有 reducers 都没有更改 state，那么也就不会创建一个新的对象。
+
+实验成功，突破认知，一直认为combineReducer只能处理根reducer，现在看来都可以。
+✌休息一下啊，保护眼睛最重要。
+    ES6 用户使用注意
+combineReducers 接收一个对象，可以把所有顶级的 reducer 放到一个独立的文件中，
+通过 export 暴露出每个 reducer 函数，然后使用 import * as reducers 得到一个以它们名字作为 key 的 object
+✌
+
+10.Store 就是把它们联系到一起的对象。Store 有以下职责：
+
+11.store维持应用的 state；
+    提供 getState() 方法获取 state；
+    提供 dispatch(action) 方法更新 state；
+    通过 subscribe(listener) 注册监听器;
+    通过 subscribe(listener) 返回的函数注销监听器。
+    ✌ 仓库 更新、查看，观察者列表
+12.严格的单向数据流是 Redux 架构的设计核心。
+    具备容易观察，容易理解，也鼓励数据范式化？模板？
+    调度（dispatch）可能rxjs学多了，喜欢用这个词
+    Redux store 调用传入的 reducer 函数。nextState=todoApp(previousState,action)
+    combineReducers可以合成多个reducer，没有限制。
+    Redux store 保存了根 reducer 返回的完整 state 树。
+    这个新的树就是应用的下一个 state！所有订阅 store.subscribe(listener) 的监听器都将被调用；监听器里可以调用 store.getState() 获得当前 state。
+    现在，可以应用新的 state 来更新 UI。
+    如果你使用了 React Redux 这类的绑定库，这时就应该调用 component.setState(newState) 来更新。
+    Ada计算机先知
+    ✌休息一下啊，保护眼睛最重要。
+
