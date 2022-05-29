@@ -9,7 +9,6 @@ const ApiShowItem = ({ name, stargazers_count, forks_count }) => {
     </li>
 }
 function ApiShow({apiItems,dispatch}) {
-    const items = apiItems;
     const {lessPage,morePage,data}=useMoreAndLessArrayMap(apiItems,3);
     useEffect(()=>{
         getGitHubAsnycPromise()(dispatch).then(
