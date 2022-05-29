@@ -15,8 +15,9 @@ const style = { display: 'inline-block', textAlign: "center", width: '10em', hei
 const currySimpeSpan = (str) => simpeSpan(str, style);
 
 
-const ApiShowItem = ({ name, stargazers_count, forks_count }) => {
+const ApiShowItem = ({ name, stargazers_count, forks_count,index }) => {
     return <li>
+        {index}
         {currySimpeSpan(name)}-收藏-{currySimpeSpan(stargazers_count)}-分支-{currySimpeSpan(forks_count)}
     </li>
 }
@@ -45,7 +46,7 @@ function ApiShow({ apiItems, dispatch }) {
             <button onClick={lessPage}>Less</button>
             <button onClick={morePage}>More</button>
             <ul>
-                {data?.map((props => <ApiShowItem key={props?.id} {...props} />))}
+                {data?.map(((props,i) => <ApiShowItem key={props?.id} {...props} index={i} />))}
             </ul>
         </div>
     )

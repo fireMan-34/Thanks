@@ -45,6 +45,7 @@
 
     陌生的
         useReducer
+    算术怎么也不过关，好歹小学也是数学一霸，哭
 
 <!-- bug -->
 # bug
@@ -68,6 +69,11 @@
     a.->过了很久，返回连接超时->连不上去,我有代理呀啊，那可能是代理没有使用进程模式或者说代理只有一种代理处理，导3致其他网络还是本地请求。->链接上去，新电脑尝试登陆验证设备，选择浏览器端。
 
     q.hook保存的状态更新后还是原来状态，更加奇怪的是接收的源映射，尽可以响应，一直是初始状态。
+    a.原来是useCallback缓存函数问题，因为我设置的是组件创建后的依赖项，所以它的函数一直没有变化，
+    但有趣的是useState仍然可以工作，但是它的副作用去无法去发现变化（可能记忆有误）。
+
+    q.Math.floor(listenArray.length/loadingCount)-isNeedLess?1:0
+    a.表达式会把前面的结果全覆盖掉,真的是这样的。
 # 灵感
 # 探索
     by
@@ -82,6 +88,7 @@
      使用表单+阻止默认事件也是可以的。
      用自定义钩子获取数据，减少重复代码。
      深度：A Reducer Hook returns us a state object and a function to alter the state object. The function -- called dispatch function -- takes an action which has a type and an optional payload. All this information is used in the actual reducer function to distill a new state from the previous state, the action's optional payload and type. Let's see how this works in code:
+     依赖项可以多入参[v1,v2,v3,....]
 
 # Verson
 语义化

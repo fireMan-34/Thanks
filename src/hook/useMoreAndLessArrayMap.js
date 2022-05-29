@@ -1,26 +1,27 @@
-import {useState } from "react"
+import {useCallback, useState } from "react"
 
-export default function useMoreAndLessArrayMap(ListenArray, loadingCount) {
-    if (!Array.isArray(ListenArray) && typeof loadingCount !== "number") {
+export default function useMoreAndLessArrayMap(listenArray, loadingCount) {
+    if (!Array.isArray(listenArray) && typeof loadingCount !== "number") {
         throw new Error(`
         无错误处理
         `);
     }
     const [pageCount, setPageCount] = useState(1);
-    const lessPage = () => {
+    const lessPage = useCallback(() => {
         if (pageCount >= 1) {
             setPageCount(v => v - 1);
         }
-    }
-    const morePage = () => {
-        if (pageCount < Math.floor(ListenArray.length / pageCount) + 1) {
-            console.log(pageCount);
+    },[pageCount])
+    const morePage = useCallback(() => {
+        const num=listenArray.length%loadingCount===0?1:0;
+        const pageMaxCount=Math.floor(listenArray.length/loadingCount)-num;
+        if (pageCount <=pageMaxCount ) {
             setPageCount(v => v + 1);
         }
-    }
+    },[listenArray,pageCount,loadingCount])
     return {
         lessPage,
         morePage,
-        data: ListenArray.slice(0, loadingCount * pageCount) || ListenArray,
+        data: listenArray.slice(0, loadingCount * pageCount) || listenArray,
     }
 }
