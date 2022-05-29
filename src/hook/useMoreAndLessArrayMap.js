@@ -6,17 +6,16 @@ export default function useMoreAndLessArrayMap(ListenArray,loadingCount){
         无错误处理
         `);
     }
-    const [pageCount,setPageCount]=useState(
-        1
-    );
+    const [pageCount,setPageCount]=useState(1);
     const lessPage=useCallback(()=>{
         if(pageCount>=1){
             setPageCount(v=>v-1);
         }
     },[]);
     const morePage=useCallback(()=>{
-        if(pageCount<=Math.floor(ListenArray.length/pageCount)+1){
+        if(pageCount<Math.floor(ListenArray.length/pageCount)+1){
             setPageCount(v=>v+1);
+            console.log(pageCount);
         }
     },[]);
     useEffect(()=>{
