@@ -37,6 +37,15 @@
     代码阅读性很差
     如果字段处理api的字段不多，自己使用笨重的库或者函数或者流程引擎，有意思吗？
 
+    “忘记你已经学到的。” — Yoda,嘿嘿，我也喜欢忘记自己所学，这样就没有已知障碍。
+
+    又提高心智模型，是不是要深入，但我现在其实最重要的是熟练度啊
+
+    文章好长啊，就不要折磨自己，用翻译插件吧。
+
+    陌生的
+        useReducer
+
 <!-- bug -->
 # bug
     q.为什么参数双层嵌套
@@ -60,6 +69,19 @@
 
     q.hook保存的状态更新后还是原来状态，更加奇怪的是接收的源映射，尽可以响应，一直是初始状态。
 # 灵感
+# 探索
+    by
+        search goolge and to find ` React Hook useEffect has a missing dependency: 'dispatch'. Either include it or remove the dependency array. If 'dispatch' changes too often, find the parent component that defines it and wrap that definition in useCallback` 
+        in Stack Overflow
+     to find https://overreacted.io/a-complete-guide-to-useeffect/ and he is new blog
+     ->https://www.robinwieruch.de/react-hooks-fetch-data/ 大佬推荐的函数式请求处理
+     另一位大佬说数据请求在hook未来不被允许，他说react未来会推荐Suspense作为处理方式
+     反复反复转圈，老实看错误报道就可以解决了，eslint认为我有在useEffect里调用dispatch，所以加入dispatch作为依赖项就可以。  
+     输入，搜索分离，减轻http请求频率，状态锁降低频率，至于什么防抖节流，这些看情况，都是差不多原理，核心都是降低执行频次。
+     async/awit异常处理tryCatch其实俺会。
+     使用表单+阻止默认事件也是可以的。
+     用自定义钩子获取数据，减少重复代码。
+     深度：A Reducer Hook returns us a state object and a function to alter the state object. The function -- called dispatch function -- takes an action which has a type and an optional payload. All this information is used in the actual reducer function to distill a new state from the previous state, the action's optional payload and type. Let's see how this works in code:
 
 # Verson
 语义化

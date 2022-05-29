@@ -26,19 +26,19 @@ const ApiShowItem = ({ name, stargazers_count, forks_count }) => {
 function ApiShow({ apiItems, dispatch }) {
     const { lessPage, morePage, data } = useMoreAndLessArrayMap(apiItems, 3);
     useEffect(() => {
-        getGitHubAsnycPromise()(dispatch).then(
-            res => {
-                const { items } = res;
-                const result = items.map(
-                    item => ({
-                        id: item.id, name: item.name,
-                        ...mapKey(item, key => curryIsCheckRulesForString(key))
-                    }),
-                )
-                dispatch(getGitHubAction(result));
-            }
-        )
-    }, []);
+        const fetchData = async () => {
+            const {items} = await getGitHubAsnycPromise()(dispatch);
+            const result = items.map(
+                item => ({
+                    id: item.id, name: item.name,
+                    ...mapKey(item, key => curryIsCheckRulesForString(key))
+                }),
+            )
+            dispatch(getGitHubAction(result));
+        };
+        fetchData();
+        return ()=>{}
+    }, [dispatch]);
     return (
         <div>
             渲染内容
