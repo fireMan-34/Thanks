@@ -39,11 +39,6 @@
       "last 1 firefox version",
       "last 1 safari version"
     ],
-    "proxy":"https://api.github.com:80",
-    "config":{
-      "commitizen":{
-        "path":"git-cz"
-      }
-    }
+    "proxy":"https://api.github.com:80"
   }
 }
