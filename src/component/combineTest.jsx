@@ -8,7 +8,7 @@ function CombineTest({ combine, bindAddDataOneAction, bindAddDataTwoAction }) {
   }, []);
   useEffect(() => {
     console.log(combine);
-  }, [combine])
+  }, [combine]);
   return (
     <>
       <div>combinTest</div>

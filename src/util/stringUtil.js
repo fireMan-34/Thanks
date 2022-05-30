@@ -9,3 +9,6 @@ export const mapKey = (obj = {}, fn = (key, value) => false || `new Key`) => {
 export const isCheckRulesForString = (regs = [], str = ``) => {
     return regs.some(reg => reg.test(str)) ? str : false;
 }
+export const rulesReplaceForString = (regAndExcs = [{reg:null,exc:null}], str = '') => {
+    return regAndExcs.reduce((str, {reg,exc},) => { return str.replace(reg,exc) }, str)
+}

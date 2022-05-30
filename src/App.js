@@ -1,5 +1,5 @@
 import './App.css';
-import ApiShow from './component/apiShow.jsx';
+import {ApiShow} from './component/apiShow';
 import CombineTest from './component/combineTest';
 function App() {
   return (

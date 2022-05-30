@@ -1,1 +1,1 @@
-export const GETDATA="获取数据";
+export const GETDATA="GETDATA";
