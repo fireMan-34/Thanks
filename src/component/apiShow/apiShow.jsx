@@ -3,28 +3,12 @@ import { connect } from 'react-redux';
 import {ApiShowItem} from './apiShowItem';
 import { GitHubApiItem } from './githubApiItem';
 import useMoreAndLessArrayMap from '../../hook/useMoreAndLessArrayMap';
-import { getGitHubAction, getGitHubAsnyc } from '../../store/api';
-import { mapKey, isCheckRulesForString } from '../../util';
-
-const rules = [
-    /_count/, /_url/
-];
-const curryIsCheckRulesForString = (str) => isCheckRulesForString(rules, str);
+import { getGitHubActionDispatch} from '../../store/api';
 
 function ApiShow({ apiItems, dispatch }) {
     const { lessPage, morePage, data } = useMoreAndLessArrayMap(apiItems, 3);
     useEffect(() => {
-        const fetchData = async () => {
-            const { items } = await getGitHubAsnyc()(dispatch);
-            const result = items.map(
-                item => ({
-                    id: item.id, name: item.name,
-                    ...mapKey(item, key => curryIsCheckRulesForString(key))
-                }),
-            )
-            dispatch(getGitHubAction(result));
-        };
-        fetchData();
+        getGitHubActionDispatch(dispatch);
         return () => { }
     }, [dispatch]);
     return (
