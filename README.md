@@ -163,12 +163,12 @@ _
      <https://github.com/FrontEndGitHub/FrontEndGitHub#%E7%AE%80%E4%BB%8B>   
 # Verson
     语义版本：版本格式：主版本号.次版本号.修订号（MAJOR.MINOR.PATCH）
-    ><strong>1.0.0</strong>
-    >>语义化
-    >>提交规范
-    >>添加git cz
-    >**1.0.1**
-    >>*README.md*使用简单的markdown语法
+> <strong>1.0.0</strong>
+>> 语义化
+>> 提交规范
+>> 添加git cz
+> ** 1.0.1 **
+>> * README.md * 使用简单的markdown语法
 
 # Repo[仓库]
     1.问题很简单，但是解决过程，过度使用一些复杂的东西。而且格式不太对。<br>
@@ -181,8 +181,8 @@ _
     8.另外，可以直接给 github 链接，不必要是 .git 地址<br>
 
 # Work
-    -(1)复习Redux，Router，免得记忆被清空。
-    -(2)多模拟面试，避免讲话紧张。
-    -(3)文档工作优化
-    -(4)看到一位优秀的博主：https://www.jianshu.com/p/59145689d266?from=groupmessage，语义模型
+- (1)复习Redux，Router，免得记忆被清空。
+- (2)多模拟面试，避免讲话紧张。
+- (3)文档工作优化
+- (4)看到一位优秀的博主：https://www.jianshu.com/p/59145689d266?from=groupmessage，语义模型
         在工程上，需要考虑哪种编程范式和语义模型之间的Gap最小，成本最低。现代编程语言基本都支持多范式，给程序员提供了灵活选择的自由。
