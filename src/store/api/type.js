@@ -1,1 +1,4 @@
-export const GETDATA="GETDATA";
+export const GETDATA='GETDATA';
+export const REQUEST_POST="REQUEST_POST";
+export const RECIEVE_POST="RECIEVE_POST";
+export const INVALIDATE_POST="INVALIDATE";

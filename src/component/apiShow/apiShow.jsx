@@ -8,7 +8,7 @@ import { getGitHubActionDispatch} from '../../store/api';
 function ApiShow({ apiItems, dispatch }) {
     const { lessPage, morePage, data } = useMoreAndLessArrayMap(apiItems, 3);
     useEffect(() => {
-        getGitHubActionDispatch(dispatch);
+        getGitHubActionDispatch(dispatch,err=>console.log(err));
         return () => { }
     }, [dispatch]);
     return (
