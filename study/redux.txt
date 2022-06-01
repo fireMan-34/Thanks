@@ -79,3 +79,38 @@ combineReducers 接收一个对象，可以把所有顶级的 reducer 放到一�
     Ada计算机先知
     ✌休息一下啊，保护眼睛最重要。
 
+13. 展示组件    容器组件
+作用：骨架样式  数据获取和状态更新
+redux 否    是
+数据来源 props  reduxState
+数据更新 props回调  向redux dispatch aciton
+调用方式 手动   通常用react redux生成
+    ✌休息一下啊，保护眼睛最重要。
+
+14.ref属性用法
+    refs有一些很好的用法，
+    管理焦点，文本选择或媒体播放
+    触发命令式动画
+    与第三方DOM库集成
+回调，creatRef
+    不要过度使用，如果要使用则考虑能否通过状态提升来解决。
+    ✌休息一下啊，保护眼睛最重要。
+
+15.异步action
+    请求状态，请求异常，以及请求结果
+    (...args)=>dispatch=>{
+        dispatch(requestAction),
+        return request().then(data,err).then(data=>dispatch(...resultAction))
+    }
+    react-thunk有什么用
+    【文章】https://www.digitalocean.com/community/tutorials/redux-redux-thunk
+    Thunk是一种编程概念，其中用于延迟操作的评估或者计算。
+    Redux Thunk 是一个中间件，可让您调用返回函数而不是操作对象的操作创建者。
+    该函数接收 store 的 dispatch 方法，然后在异步操作完成后用于在函数体内调度常规同步操作。
+    ✌休息一下啊，保护眼睛最重要。
+    不太懂，暂时不强求。
+16.Monkeypatching
+    有趣的属性装饰器写法。
+    中间件
+    练习完中文文档的中间件教程
+    ✌休息一下啊，保护眼睛最重要。
